@@ -1,0 +1,26 @@
+{
+  "name": "metrics-dashboard-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fakeData.js",
+  "dependencies": {
+    "@turf/bbox": "^6.0.1",
+    "@turf/boolean-within": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
+    "@turf/random": "^6.0.2",
+    "chance": "^1.0.16",
+    "elasticsearch": "^15.2.0",
+    "moment": "^2.22.2",
+    "turf": "^3.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "es": "docker run --rm --name elasticsearch -v esdata:/usr/share/elasticsearch/data -p 9200:9200 -e \"http.host=0.0.0.0\" -e \"transport.host=127.0.0.1\" docker.elastic.co/elasticsearch/elasticsearch:6.5.1",
+    "kibana-mac": "docker run --rm --name kibana -e ELASTICSEARCH_URL=http://docker.for.mac.localhost:9200 -p 5601:5601 docker.elastic.co/kibana/kibana:6.5.1",
+    "kibana": "docker run --rm --name kibana --net=host -e ELASTICSEARCH_URL=http://localhost:9200 docker.elastic.co/kibana/kibana:6.5.1"
+
+  },
+  "author": "Anthony Lukach",
+  "license": "ISC"
+}
